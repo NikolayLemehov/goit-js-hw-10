@@ -14,10 +14,8 @@ const refs = {
 
 refs.input.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
-// onInputSearch()
 function onInputSearch(e) {
   const inputValue = e.target.value.trim();
-  // const inputValue = 'swi';
   removeChildren(refs.countryList)
   removeChildren(refs.countryInfo);
   if (inputValue === '') {
@@ -31,7 +29,6 @@ function onInputSearch(e) {
         return;
       }
       if (res.length === 1) {
-        // console.dir(res);
         renderCard(res[0]);
         return;
       }
@@ -48,7 +45,6 @@ function renderList(countries) {
 
 function renderCard(country) {
   const {name, capital, population, svg, languages} = country;
-  // removeChildren(refs.countryInfo);
   refs.countryInfo.innerHTML = cardTemplate({name, capital, population, svg, languages});
 }
 
